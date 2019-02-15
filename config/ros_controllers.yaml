@@ -1,0 +1,28 @@
+ma2010_d500:
+# MoveIt-specific simulation settings
+  moveit_sim_hw_interface:
+    joint_model_group: controllers_initial_group_
+    joint_model_group_pose: controllers_initial_pose_
+# Settings for ros_control control loop
+  generic_hw_control_loop:
+    loop_hz: 300
+    cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+  hardware_interface:
+    joints:
+      - d500_joint_1
+      - d500_joint_2
+      - ma2010_joint_1_s
+      - ma2010_joint_2_l
+      - ma2010_joint_3_u
+      - ma2010_joint_4_r
+      - ma2010_joint_5_b
+      - ma2010_joint_6_t
+    sim_control_mode: 1  # 0: position, 1: velocity
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  controller_list:
+    []

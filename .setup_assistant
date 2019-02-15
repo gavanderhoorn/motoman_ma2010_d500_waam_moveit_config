@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: motoman_ma2010_motopos_d500_support
+    relative_path: urdf/ma2010_d500.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/ma2010_d500.srdf
+  CONFIG:
+    author_name: Thomas Lehmann
+    author_email: lehmann@ualberta.ca
+    generated_timestamp: 1550017953
