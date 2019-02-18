@@ -1,6 +1,6 @@
 moveit_setup_assistant_config:
   URDF:
-    package: motoman_ma2010_motopos_d500_support
+    package: motoman_ma2010_d500_waam_support
     relative_path: urdf/ma2010_d500.xacro
     xacro_args: "--inorder "
   SRDF:
