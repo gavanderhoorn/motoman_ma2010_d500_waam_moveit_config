@@ -1,20 +1,20 @@
 controller_list:
-  - name: ""
+  # This controller will exist when motoman_driver is used, but it's not easily
+  # simulated with industrial_robot_simulator.
+  #
+  # Note: I 'made up' the 'dx200' name(space).
+  #
+  # - name: dx200
+  #   action_ns: joint_trajectory_action
+  #   type: FollowJointTrajectory
+  #   default: true
+  #   joints: [ma2010_joint_1_s, ma2010_joint_2_l, ma2010_joint_3_u, ma2010_joint_4_r, ma2010_joint_5_b, ma2010_joint_6_t, d500_joint_1, d500_joint_2]
+  #
+  - name: dx200/r1
     action_ns: joint_trajectory_action
     type: FollowJointTrajectory
-    default: true
-    joints: [ma2010_joint_1_s, ma2010_joint_2_l, ma2010_joint_3_u, ma2010_joint_4_r, ma2010_joint_5_b, ma2010_joint_6_t, d500_joint_1, d500_joint_2]
-  - name: "ma2010_d500/arm_controller"
-    action_ns: joint_trajectory_action
-    type: FollowJointTrajectory
-    default: true
     joints: [ma2010_joint_1_s, ma2010_joint_2_l, ma2010_joint_3_u, ma2010_joint_4_r, ma2010_joint_5_b, ma2010_joint_6_t]
-  - name: "ma2010_d500/positioner_controller"
+  - name: dx200/b1
     action_ns: joint_trajectory_action
     type: FollowJointTrajectory
-    default: true
     joints: [d500_joint_1, d500_joint_2]
-  #- name: "positioner_controller"
-  #  action_ns: joint_trajectory_action
-  #  type: FollowJointTrajectory
-  #  joints: [d500_joint_1, d500_joint_2]

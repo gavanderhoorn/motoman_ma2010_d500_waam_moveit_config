@@ -146,7 +146,9 @@ arm:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-positioner:
+  projection_evaluator: joints(ma2010_joint_1_s,ma2010_joint_2_l)
+  longest_valid_segment_fraction: 0.005
+turntable:
   default_planner_config: RRTConnect
   planner_configs:
     - SBL
@@ -172,3 +174,5 @@ positioner:
     - LazyPRMstar
     - SPARS
     - SPARStwo
+  projection_evaluator: joints(d500_joint_1,d500_joint_2)
+  longest_valid_segment_fraction: 0.005

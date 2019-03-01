@@ -10,24 +10,24 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="arm">
-        <joint name="ma2010_base_link-world" />
-        <joint name="ma2010_joint_1_s" />
-        <joint name="ma2010_joint_2_l" />
-        <joint name="ma2010_joint_3_u" />
-        <joint name="ma2010_joint_4_r" />
-        <joint name="ma2010_joint_5_b" />
-        <joint name="ma2010_joint_6_t" />
-        <joint name="ma2010_joint_6_t-tool0" />
-        <joint name="ma2010_tool0-ma2010_tool_tip" />
-        <joint name="ma2010_tool0-ma2010_tool_tip_ang" />
+        <chain base_link="ma2010_base_link" tip_link="ma2010_tool0" />
     </group>
-    <group name="positioner">
-        <joint name="d500_base_link-world" />
-        <joint name="d500_joint_1" />
-        <joint name="d500_joint_2" />
-        <joint name="d500_joint_2-tool0" />
-        <joint name="d500_tool0-d500_sub_plate" />
+    <group name="turntable">
+        <chain base_link="d500_base_link" tip_link="d500_tool0" />
     </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="all-zeros" group="arm">
+        <joint name="ma2010_joint_1_s" value="0" />
+        <joint name="ma2010_joint_2_l" value="0" />
+        <joint name="ma2010_joint_3_u" value="0" />
+        <joint name="ma2010_joint_4_r" value="0" />
+        <joint name="ma2010_joint_5_b" value="0" />
+        <joint name="ma2010_joint_6_t" value="0" />
+    </group_state>
+    <group_state name="all-zeros" group="turntable">
+        <joint name="d500_joint_1" value="0" />
+        <joint name="d500_joint_2" value="0" />
+    </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="d500_base_link" link2="d500_link_1" reason="Adjacent" />
     <disable_collisions link1="d500_base_link" link2="d500_link_2" reason="Default" />
